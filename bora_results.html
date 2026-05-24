@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BORA Project Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Serif+4:wght@400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        --paper: #f6f2ea;
+        --ink: #1f1c17;
+        --accent: #1e3a8a;
+        --accent-soft: rgba(30, 58, 138, 0.2);
+        --muted: #6b7280;
+      }
+
+      body {
+        font-family: "Source Serif 4", "Times New Roman", Times, serif;
+        color: var(--ink);
+        background-color: var(--paper);
+      }
+
+      .title-font {
+        font-family: "Cormorant Garamond", "Times New Roman", Times, serif;
+      }
+
+      .paper-grid {
+        background-image: radial-gradient(rgba(30, 58, 138, 0.08) 1px, transparent 1px),
+          linear-gradient(120deg, rgba(30, 58, 138, 0.06), rgba(249, 115, 22, 0.05));
+        background-size: 18px 18px, cover;
+      }
+
+      .chart-card {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+      }
+
+      .media-frame {
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 16px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .chart-wrap {
+        height: 320px;
+      }
+
+      .video-card {
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 14px;
+        padding: 10px;
+        background: #ffffff;
+        width: 240px;
+        flex: 0 0 auto;
+      }
+
+      .text-sm {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .text-xs {
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+
+      .video-marquee {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+
+      .video-track {
+        display: flex;
+        gap: 16px;
+        width: max-content;
+        animation: scroll var(--speed, 48s) linear infinite;
+      }
+
+      .video-track:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .media-frame img {
+          max-height: 360px;
+          object-fit: contain;
+        }
+
+        .chart-wrap {
+          height: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body class="paper-grid">
+    <div class="min-h-screen">
+      <header class="mx-auto max-w-6xl px-6 pt-10">
+        <div class="mb-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div class="mb-3 h-1 w-20 rounded-full bg-slate-900"></div>
+            <h1 class="title-font text-[2.6rem] font-semibold tracking-tight text-slate-900 md:text-[3.4rem]">
+              BORA: Bridging Offline Token-Action RL and Online Residual Adaptation
+            </h1>
+            <p class="mt-4 max-w-3xl text-base text-slate-700 md:text-lg lg:max-w-none lg:whitespace-nowrap">
+              The first offline-to-online RL post-training framework for real-world dexterous VLA models.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a
+              class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+              href="CoRL2026_BORA_authors.pdf"
+            >
+              Paper PDF
+            </a>
+            <a
+              class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+              href="#"
+            >
+              arXiv
+            </a>
+            <a
+              class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+              href="#"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="mt-4 space-y-3 text-center text-sm text-slate-600">
+          <div class="title-font flex flex-wrap justify-center gap-2 text-base text-slate-800 md:text-lg">
+            <span class="font-semibold text-slate-700">Authors:</span>
+            <span>
+              Zhongxi Chen<sup>1*</sup>, Yifan Han<sup>2*</sup>, Yanming Shao<sup>3</sup>,
+              Huanming Liu<sup>4</sup>, Congsheng Xu<sup>1</sup>, Xiaoyu Chen<sup>1</sup>,
+              Yao Mu<sup>1†</sup>, Wenzhao Lian<sup>1†</sup>
+            </span>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2 text-sm md:text-base">
+            <span class="font-semibold text-slate-700">Affiliations:</span>
+            <span><sup>1</sup> SJTU</span>
+            <span><sup>2</sup> CASIA</span>
+            <span><sup>3</sup> Shanghai AI Laboratory</span>
+            <span><sup>4</sup> USTC</span>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wide text-slate-500 md:text-sm">
+            <span>* Co-first authors</span>
+            <span>† Corresponding authors</span>
+          </div>
+        </div>
+        <nav class="mt-6 flex flex-wrap gap-3 text-sm text-slate-600">
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#abstract"
+          >
+            Abstract
+          </a>
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#contributions"
+          >
+            Contributions
+          </a>
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#pipeline"
+          >
+            Pipeline
+          </a>
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#results"
+          >
+            Results
+          </a>
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#citation"
+          >
+            Citation
+          </a>
+          <a
+            class="rounded-full border border-slate-200 px-3 py-1 transition hover:border-slate-400 hover:text-slate-900"
+            href="#experiments"
+          >
+            Experiments
+          </a>
+        </nav>
+      </header>
+
+      <main class="mx-auto max-w-6xl px-6 pb-12">
+        <section class="chart-card mt-8 rounded-2xl p-6" id="abstract">
+          <h2 class="title-font text-2xl font-bold text-slate-900">Abstract</h2>
+          <p class="mt-3 text-sm text-slate-700">
+            While Supervised Fine-Tuning (SFT) has enabled dexterous Vision-Language-Action (VLA)
+            models to adapt to diverse real-world tasks, this post-training pipeline often limits
+            the model's intent alignment, thereby compromising generalization and stability.
+            Although Reinforcement Learning (RL) post-training offers a theoretical remedy,
+            existing RL frameworks applied to dexterous manipulation - characterized by
+            high-dimensional action spaces, complex contacts, and severe self-occlusions -
+            frequently suffer from both "Visual Value Hacking" and a severe misalignment between
+            high-level intents and low-level control.
+          </p>
+          <p class="mt-3 text-sm text-slate-700">
+            To address these twin bottlenecks, we propose BORA, the first offline-to-online RL
+            post-training framework designed for real-world dexterous VLA models. In the offline
+            phase, BORA constructs an Integrated Token-Action Critic network to simultaneously
+            mitigate visual hacking and establish deep alignment between macro-manipulation
+            intents and low-level motor control. To mitigate real-world execution errors, the
+            online phase freezes the offline-aligned VLA base and introduces a lightweight,
+            Human-in-the-Loop (HiL) Residual Chunk adaptation mechanism. By leveraging the
+            offline critic and employing an intervention-aware reward formulation, BORA
+            compensates for unmodeled physical dynamics while preserving pre-trained priors.
+            Extensive evaluations across five complex real-world dexterous tasks demonstrate
+            that BORA significantly outperforms pure imitation learning and traditional
+            decoupled RL baselines, achieving a 33% absolute increase in average success rate
+            under standard settings and up to a 43% improvement in unseen object generalization.
+          </p>
+          <div class="media-frame mt-5">
+            <img class="w-full" src="figure/teaser.png" alt="BORA teaser figure" />
+          </div>
+        </section>
+
+        <section class="chart-card mt-8 rounded-2xl p-6" id="contributions">
+          <h2 class="title-font text-2xl font-bold text-slate-900">Contributions</h2>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
+            <li>
+              Token-Action Integrated Architecture: a critic that fuses continuous action chunks
+              with VLM semantic features to mitigate visual value hacking and improve intent
+              evaluation in offline RL.
+            </li>
+            <li>
+              Lightweight Residual Online Adaptation: a Human-in-the-Loop residual chunk mechanism
+              that freezes the VLA base while inheriting the offline critic for safe physical
+              adaptation.
+            </li>
+            <li>
+              The BORA Unified Framework: a complete Offline-to-Online post-training paradigm
+              that improves success rates and real-world robustness for dexterous manipulation.
+            </li>
+          </ul>
+        </section>
+
+        <section class="chart-card mt-8 rounded-2xl p-6" id="pipeline">
+          <div class="flex items-center justify-between">
+            <h2 class="title-font text-2xl font-bold text-slate-900">Pipeline</h2>
+            <a class="text-sm text-slate-600 underline" href="figure/pipeline.pdf">Open PDF</a>
+          </div>
+          <div class="media-frame mt-4">
+            <img class="w-full" src="figure/pipeline.png" alt="BORA pipeline diagram" />
+          </div>
+          <p class="mt-4 text-sm text-slate-700">
+            Illustration of the BORA framework. BORA bridges offline token-action reinforcement
+            learning and online residual adaptation for real-world dexterous VLA policies. In the
+            offline stage, the VLM encoder and action expert produce shared VLM tokens and action
+            chunks, which are jointly evaluated by an integrated critic with semantic anchoring,
+            temporal credit disentanglement, and IQL-based offline policy optimization. In the
+            online stage, the offline-aligned base VLA is frozen, while a lightweight residual
+            chunk actor is trained with inherited critic feedback, sparse task rewards, and
+            human-in-the-loop intervention signals. The final action chunk is obtained by residual
+            composition, A_final = A_base + lambda A_res, enabling low-cost physical adaptation and
+            improved dexterous execution.
+          </p>
+        </section>
+
+        <section class="chart-card mt-8 rounded-2xl p-6" id="results">
+          <div class="flex items-center justify-between">
+            <h2 class="title-font text-2xl font-bold text-slate-900">Results</h2>
+            <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Success Rate (%)</span>
+          </div>
+          <div class="mt-4 grid gap-6 lg:grid-cols-2">
+            <div class="lg:border-r lg:border-slate-200 lg:pr-6">
+              <h3 class="title-font text-xl font-semibold text-slate-900">Standard</h3>
+              <div class="chart-wrap mt-3">
+                <canvas id="standardChart"></canvas>
+              </div>
+            </div>
+            <div class="lg:pl-6">
+              <h3 class="title-font text-xl font-semibold text-slate-900">Object-Unseen</h3>
+              <div class="chart-wrap mt-3">
+                <canvas id="unseenChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chart-card mt-8 rounded-2xl p-6" id="experiments">
+          <div class="flex items-center justify-between">
+            <h2 class="title-font text-2xl font-bold text-slate-900">Experiments</h2>
+            <a class="text-sm text-slate-600 underline" href="figure/experiment.png">Open figure</a>
+          </div>
+          <p class="mt-2 text-sm text-slate-600">Real-world evaluation videos from the experiment folder.</p>
+          <img
+            class="mt-4 w-full rounded-xl border border-slate-200"
+            src="figure/experiment.png"
+            alt="Experiment overview"
+          />
+          <div class="mt-6">
+            <h3 class="title-font text-xl font-semibold text-slate-900">Research Questions</h3>
+            <div class="mt-4 grid gap-4 md:grid-cols-3">
+              <div class="chart-card rounded-2xl p-5">
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ1</p>
+                <p class="mt-3 text-sm text-slate-700">
+                  Can our framework robustly distill offline intents while overcoming generative
+                  gradient degradation and visual value hacking?
+                </p>
+              </div>
+              <div class="chart-card rounded-2xl p-5">
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ2</p>
+                <p class="mt-3 text-sm text-slate-700">
+                  How can the proposed online adaptation bridge the real-world deployment gap in
+                  a sample efficient way?
+                </p>
+              </div>
+              <div class="chart-card rounded-2xl p-5">
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ3</p>
+                <p class="mt-3 text-sm text-slate-700">
+                  How does the inherited, token-action aligned critic facilitate rapid error
+                  comprehension and policy guidance during online fine-tuning?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            <details class="rounded-2xl border border-slate-200 bg-white/70 p-4">
+              <summary class="cursor-pointer text-sm font-semibold text-slate-800">
+                RQ1 Analysis: Offline RL intent alignment and visual value hacking
+              </summary>
+              <div class="mt-3 space-y-3 text-sm text-slate-700">
+                <p>
+                  As shown in the paper, the pure IL baseline (CP Base) plateaus at an overall
+                  average success rate of 27.0% under the object-unseen setting, failing to
+                  generalize in highly multimodal dexterous action spaces. By routing informative
+                  policy gradients back into the foundational VLM within minimal steps, BORA-Offline
+                  extracts high-fidelity physical intents, yielding a substantial performance boost
+                  (elevating the overall average success rate from 53.0% to 67.0% in the standard
+                  setting, and from 27.0% to 52.0% under the object-unseen configuration). This
+                  indicates that, although standard diffusion architectures hinder direct offline
+                  RL fine-tuning due to severe gradient vanishing across lengthy denoising chains,
+                  our truncated consistency policy formulation effectively addresses this
+                  generative bottleneck.
+                </p>
+                <p>
+                  Crucially, this architectural synergy successfully immunizes the model against
+                  visual value hacking induced by severe self-occlusions. Traditional decoupled
+                  architectures (SERL-like baseline) overfit raw pixel values to spurious background
+                  features, producing toxic gradients. Consequently, in high-contact occluded tasks
+                  like Open the box, success rates drop to 25% (standard) and 5% (unseen), and
+                  average success rates (45.0% standard, 41.0% unseen) sink below the pure CP
+                  baseline in key dimensions. Conversely, by conditioning our integrated critic
+                  directly on the VLM's semantic tokens, BORA-Offline binds value updates strictly
+                  to the multimodal latent space. This is further supported by the t-SNE
+                  visualization in the Appendix, where the external critic variant exhibits clear
+                  representation drift away from the SFT/BC manifold after offline RL, while
+                  BORA-Offline better preserves token-action manifold alignment.
+                </p>
+              </div>
+            </details>
+
+            <details class="rounded-2xl border border-slate-200 bg-white/70 p-4">
+              <summary class="cursor-pointer text-sm font-semibold text-slate-800">
+                RQ2 Analysis: Sample-efficient online physical adaptation
+              </summary>
+              <div class="mt-3 space-y-3 text-sm text-slate-700">
+                <p>
+                  Despite the intent awareness established offline, real-world deployment
+                  introduces covariate shifts, execution errors, and intricate contact friction,
+                  causing a performance drop on object-unseen tasks. To address this offline-to-
+                  online gap, the online residual chunk adaptation in BORA-Full provides a
+                  sample-efficient solution. Specifically, BORA-Full utilizes only 2 rounds of
+                  online reinforcement learning, where each round collects 10 rollout trajectories
+                  with human corrective interventions. Benefiting from this residual training and
+                  the human-intervention value guidance mechanism, BORA-Full improves the overall
+                  average success rate to 86.0% in the standard setting, and elevates it from
+                  52.0% to 70.0% under the object-unseen configuration. This efficient adaptation
+                  achieves state-of-the-art performance on dexterous execution tasks, while
+                  preventing representation drift in the frozen pre-trained VLM foundation.
+                </p>
+              </div>
+            </details>
+
+            <details class="rounded-2xl border border-slate-200 bg-white/70 p-4">
+              <summary class="cursor-pointer text-sm font-semibold text-slate-800">
+                RQ3 Analysis: Mechanistic probing of critic inheritance
+              </summary>
+              <div class="mt-3 space-y-3 text-sm text-slate-700">
+                <p>
+                  To understand the underlying mechanism behind the rapid online adaptation, we
+                  analyze the behaviors of the inherited value function. The empirical value
+                  profiles reveal that the offline-matured integrated critic, when combined with
+                  the online asymmetric intervention-aware reward, provides stable and responsive
+                  value estimation. Throughout autonomous execution, the inherited critic exhibits
+                  clear discriminative capability: it maintains high value confidence along
+                  successful trajectories, while its Q-value estimation remains consistently low
+                  along failed trajectories.
+                </p>
+                <p>
+                  Importantly, this discriminative capability is preserved even in visually similar
+                  states, such as when the multi-fingered hand grasps an object under severe local
+                  self-occlusion. Although the raw camera pixels appear nearly identical to those
+                  in the decoupled baseline, the joint token-action alignment inherited from the
+                  offline stage allows the critic to evaluate state-action pairs at a structural
+                  semantic level. Consequently, the inherited critic mitigates superficial visual
+                  ambiguities, penalizes high-risk execution states, and guides the lightweight
+                  residual policy to incorporate human corrective priors with few physical
+                  interactions.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            <div>
+              <h3 class="title-font text-xl font-semibold text-slate-900">Standard</h3>
+              <div class="video-marquee mt-3">
+                <div class="video-track" style="--speed: 46s;">
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/picktoy.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick Toy</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/pickandplace.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick &amp; Place</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/open.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Open Box</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/pull.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pull Tissue</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/press.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Press Button</figcaption>
+                  </figure>
+
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/picktoy.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick Toy</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/pickandplace.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick &amp; Place</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/open.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Open Box</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/pull.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pull Tissue</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/standard/press.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Press Button</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="title-font text-xl font-semibold text-slate-900">Object-Unseen</h3>
+              <div class="video-marquee mt-3">
+                <div class="video-track" style="--speed: 52s;">
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/picktoy.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick Toy</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/pickandplace.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick &amp; Place</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/pull.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pull Tissue</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/press.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Press Button</figcaption>
+                  </figure>
+
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/picktoy.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick Toy</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/pickandplace.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pick &amp; Place</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/pull.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Pull Tissue</figcaption>
+                  </figure>
+                  <figure class="video-card">
+                    <video
+                      class="w-full rounded-lg border border-slate-200 bg-black"
+                      muted
+                      loop
+                      autoplay
+                      playsinline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="experiment/object-unseen/press.mov" type="video/quicktime" />
+                    </video>
+                    <figcaption class="mt-2 text-sm text-slate-600">Press Button</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-xs text-slate-500">
+            Videos autoplay muted and loop for smooth scrolling. If a video does not play, try
+            Safari or open the file directly from the experiment folder.
+          </p>
+        </section>
+
+        <section class="chart-card mt-8 rounded-2xl p-6" id="citation">
+          <h2 class="title-font text-2xl font-bold text-slate-900">Citation</h2>
+          <p class="mt-3 text-sm text-slate-700">BibTeX coming soon.</p>
+          <pre class="mt-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-white/80 p-4 text-xs text-slate-600">
+@inproceedings{bora2026,
+  title     = {BORA: Bridging Offline Token-Action RL and Online Residual Adaptation},
+  author    = {To be added},
+  booktitle = {Conference TBD},
+  year      = {2026}
+}
+          </pre>
+        </section>
+      </main>
+    </div>
+    <script>
+      const tasks = ["Pick Toy", "Pick & Place", "Open Box", "Pull Tissue", "Press Button"];
+
+      const models = [
+        { label: "VITRA (Diffusion)", fill: "rgba(148, 163, 184, 0.75)", stroke: "#64748B" },
+        { label: "CP Base", fill: "rgba(203, 213, 225, 0.75)", stroke: "#94A3B8" },
+        { label: "CP + Decoupled Critic", fill: "rgba(191, 219, 254, 0.8)", stroke: "#60A5FA" },
+        { label: "BORA-Offline", fill: "rgba(125, 211, 252, 0.75)", stroke: "#38BDF8" },
+        { label: "BORA-Full (Ours)", fill: "rgba(30, 58, 138, 0.88)", stroke: "#1E3A8A" }
+      ];
+
+      const results = [
+        { task: "Pick Toy", standard: [70, 60, 50, 85, 100], unseen: [45, 35, 55, 75, 85] },
+        { task: "Pick & Place", standard: [45, 50, 40, 70, 90], unseen: [30, 30, 40, 45, 70] },
+        { task: "Open Box", standard: [60, 55, 25, 55, 75], unseen: [10, 15, 5, 35, 50] },
+        { task: "Pull Tissue", standard: [45, 35, 50, 60, 80], unseen: [35, 15, 50, 50, 70] },
+        { task: "Press Button", standard: [50, 65, 60, 65, 85], unseen: [45, 40, 55, 55, 75] }
+      ];
+
+      const buildErrors = (values, modelIndex) =>
+        values.map((value, i) => 3 + (modelIndex % 2) + (i % 3));
+
+      const errorBarPlugin = {
+        id: "errorBars",
+        afterDatasetsDraw(chart) {
+          const { ctx, scales } = chart;
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            const meta = chart.getDatasetMeta(datasetIndex);
+            if (!meta || meta.type !== "bar") return;
+            const errors = dataset.errorBars;
+            if (!errors) return;
+
+            ctx.save();
+            ctx.strokeStyle = "rgba(15, 23, 42, 0.65)";
+            ctx.lineWidth = 1;
+
+            meta.data.forEach((bar, index) => {
+              const errorValue = errors[index];
+              if (errorValue == null) return;
+
+              const x = bar.x;
+              const yTop = scales.y.getPixelForValue(dataset.data[index] + errorValue);
+              const yBottom = scales.y.getPixelForValue(dataset.data[index] - errorValue);
+              const cap = 6;
+
+              ctx.beginPath();
+              ctx.moveTo(x, yTop);
+              ctx.lineTo(x, yBottom);
+              ctx.stroke();
+
+              ctx.beginPath();
+              ctx.moveTo(x - cap, yTop);
+              ctx.lineTo(x + cap, yTop);
+              ctx.moveTo(x - cap, yBottom);
+              ctx.lineTo(x + cap, yBottom);
+              ctx.stroke();
+            });
+
+            ctx.restore();
+          });
+        }
+      };
+
+      const drawStar = (ctx, x, y, spikes, outerRadius, innerRadius) => {
+        let rotation = (Math.PI / 2) * 3;
+        let currentX = x;
+        let currentY = y;
+        const step = Math.PI / spikes;
+
+        ctx.beginPath();
+        ctx.moveTo(x, y - outerRadius);
+        for (let i = 0; i < spikes; i++) {
+          currentX = x + Math.cos(rotation) * outerRadius;
+          currentY = y + Math.sin(rotation) * outerRadius;
+          ctx.lineTo(currentX, currentY);
+          rotation += step;
+
+          currentX = x + Math.cos(rotation) * innerRadius;
+          currentY = y + Math.sin(rotation) * innerRadius;
+          ctx.lineTo(currentX, currentY);
+          rotation += step;
+        }
+        ctx.lineTo(x, y - outerRadius);
+        ctx.closePath();
+      };
+
+      const boraStarPlugin = {
+        id: "boraStars",
+        afterDatasetsDraw(chart) {
+          const { ctx } = chart;
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            if (dataset.label !== "BORA-Full (Ours)") return;
+            const meta = chart.getDatasetMeta(datasetIndex);
+            if (!meta || meta.type !== "bar") return;
+
+            meta.data.forEach((bar) => {
+              const x = bar.x;
+              const y = bar.y - 14;
+
+              ctx.save();
+              ctx.fillStyle = "rgba(30, 58, 138, 0.15)";
+              ctx.beginPath();
+              ctx.arc(x, y, 10, 0, Math.PI * 2);
+              ctx.fill();
+
+              ctx.fillStyle = "#1E3A8A";
+              drawStar(ctx, x, y, 5, 6, 3);
+              ctx.fill();
+              ctx.restore();
+            });
+          });
+        }
+      };
+
+      Chart.defaults.font.family = "Source Serif 4, Times New Roman, Times, serif";
+      Chart.defaults.color = "#1f1c17";
+
+      Chart.register(errorBarPlugin, boraStarPlugin);
+
+      const buildDatasets = (key) =>
+        models.map((model, index) => {
+          const values = results.map((row) => row[key][index]);
+          return {
+            label: model.label,
+            data: values,
+            backgroundColor: model.fill,
+            borderColor: model.stroke,
+            borderWidth: model.label === "BORA-Full (Ours)" ? 2 : 1,
+            errorBars: buildErrors(values, index),
+            borderRadius: 4,
+            barPercentage: 0.82,
+            categoryPercentage: 0.7
+          };
+        });
+
+      const buildChart = (canvasId, key) => {
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+        return new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: tasks,
+            datasets: buildDatasets(key)
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "top",
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: "rectRounded",
+                  boxWidth: 12,
+                  padding: 14
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: (context) => `${context.dataset.label}: ${context.parsed.y}%`
+                }
+              }
+            },
+            scales: {
+              y: {
+                min: 0,
+                max: 100,
+                title: {
+                  display: true,
+                  text: "Success Rate (%)",
+                  font: { weight: "600" }
+                },
+                ticks: {
+                  stepSize: 10
+                },
+                grid: {
+                  color: "rgba(15, 23, 42, 0.12)"
+                }
+              },
+              x: {
+                ticks: {
+                  maxRotation: 20,
+                  minRotation: 0
+                },
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        });
+      };
+
+      buildChart("standardChart", "standard");
+      buildChart("unseenChart", "unseen");
+    </script>
+  </body>
+</html>
