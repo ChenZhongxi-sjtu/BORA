@@ -736,50 +736,6 @@
         { task: "Press Button", standard: [50, 65, 60, 65, 85], unseen: [45, 40, 55, 55, 75] }
       ];
 
-      const buildErrors = (values, modelIndex) =>
-        values.map((value, i) => 3 + (modelIndex % 2) + (i % 3));
-
-      const errorBarPlugin = {
-        id: "errorBars",
-        afterDatasetsDraw(chart) {
-          const { ctx, scales } = chart;
-          chart.data.datasets.forEach((dataset, datasetIndex) => {
-            const meta = chart.getDatasetMeta(datasetIndex);
-            if (!meta || meta.type !== "bar") return;
-            const errors = dataset.errorBars;
-            if (!errors) return;
-
-            ctx.save();
-            ctx.strokeStyle = "rgba(15, 23, 42, 0.65)";
-            ctx.lineWidth = 1;
-
-            meta.data.forEach((bar, index) => {
-              const errorValue = errors[index];
-              if (errorValue == null) return;
-
-              const x = bar.x;
-              const yTop = scales.y.getPixelForValue(dataset.data[index] + errorValue);
-              const yBottom = scales.y.getPixelForValue(dataset.data[index] - errorValue);
-              const cap = 6;
-
-              ctx.beginPath();
-              ctx.moveTo(x, yTop);
-              ctx.lineTo(x, yBottom);
-              ctx.stroke();
-
-              ctx.beginPath();
-              ctx.moveTo(x - cap, yTop);
-              ctx.lineTo(x + cap, yTop);
-              ctx.moveTo(x - cap, yBottom);
-              ctx.lineTo(x + cap, yBottom);
-              ctx.stroke();
-            });
-
-            ctx.restore();
-          });
-        }
-      };
-
       const drawStar = (ctx, x, y, spikes, outerRadius, innerRadius) => {
         let rotation = (Math.PI / 2) * 3;
         let currentX = x;
@@ -834,7 +790,7 @@
       Chart.defaults.font.family = "Source Serif 4, Times New Roman, Times, serif";
       Chart.defaults.color = "#1f1c17";
 
-      Chart.register(errorBarPlugin, boraStarPlugin);
+      Chart.register(boraStarPlugin);
 
       const buildDatasets = (key) =>
         models.map((model, index) => {
@@ -845,7 +801,6 @@
             backgroundColor: model.fill,
             borderColor: model.stroke,
             borderWidth: model.label === "BORA-Full (Ours)" ? 2 : 1,
-            errorBars: buildErrors(values, index),
             borderRadius: 4,
             barPercentage: 0.82,
             categoryPercentage: 0.7
