@@ -317,22 +317,23 @@
               <div class="chart-card rounded-2xl p-5">
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ1</p>
                 <p class="mt-3 text-sm text-slate-700">
-                  Can our framework robustly distill offline intents while overcoming generative
-                  gradient degradation and visual value hacking?
+                  Can BORA improve offline RL post-training for dexterous VLA policies by
+                  providing action-conditioned value guidance under high-dimensional action
+                  generation and visual occlusion?
                 </p>
               </div>
               <div class="chart-card rounded-2xl p-5">
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ2</p>
                 <p class="mt-3 text-sm text-slate-700">
                   How can the proposed online adaptation bridge the real-world deployment gap in
-                  a sample efficient way?
+                  a sample-efficient way?
                 </p>
               </div>
               <div class="chart-card rounded-2xl p-5">
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-500">RQ3</p>
                 <p class="mt-3 text-sm text-slate-700">
-                  How does the inherited, token-action aligned critic facilitate rapid error
-                  comprehension and policy guidance during online fine-tuning?
+                  How does the inherited action-conditioned critic support residual policy
+                  learning during online fine-tuning?
                 </p>
               </div>
             </div>
@@ -341,35 +342,28 @@
           <div class="mt-6 space-y-4">
             <details class="rounded-2xl border border-slate-200 bg-white/70 p-4">
               <summary class="cursor-pointer text-sm font-semibold text-slate-800">
-                RQ1 Analysis: Offline RL intent alignment and visual value hacking
+                RQ1 Analysis: Offline intent alignment with action-conditioned value guidance
               </summary>
               <div class="mt-3 space-y-3 text-sm text-slate-700">
                 <p>
-                  As shown in the paper, the pure IL baseline (CP Base) plateaus at an overall
-                  average success rate of 27.0% under the object-unseen setting, failing to
-                  generalize in highly multimodal dexterous action spaces. By routing informative
-                  policy gradients back into the foundational VLM within minimal steps, BORA-Offline
-                  extracts high-fidelity physical intents, yielding a substantial performance boost
-                  (elevating the overall average success rate from 53.0% to 67.0% in the standard
-                  setting, and from 27.0% to 52.0% under the object-unseen configuration). This
-                  indicates that, although standard diffusion architectures hinder direct offline
-                  RL fine-tuning due to severe gradient vanishing across lengthy denoising chains,
-                  our truncated consistency policy formulation effectively addresses this
-                  generative bottleneck.
+                  As shown in the paper, CP Base reaches 53.0% average success under the standard
+                  setting but drops to 27.0% under object-unseen evaluation, indicating limited
+                  generalization in high-dimensional and multimodal dexterous action spaces. By
+                  routing informative policy gradients back into the foundational VLM within
+                  minimal steps, BORA-Offline extracts high-fidelity physical intents, improving
+                  the averages to 67.0% and 52.0%, respectively, yielding a 14-point gain in the
+                  standard setting and a 25-point gain under object-unseen evaluation. This shows
+                  that our truncated consistency policy formulation mitigates the gradient
+                  vanishing bottleneck of long denoising iterations.
                 </p>
                 <p>
-                  Crucially, this architectural synergy successfully immunizes the model against
-                  visual value hacking induced by severe self-occlusions. Traditional decoupled
-                  architectures (SERL-like baseline) overfit raw pixel values to spurious background
-                  features, producing toxic gradients. Consequently, in high-contact occluded tasks
-                  like Open the box, success rates drop to 25% (standard) and 5% (unseen), and
-                  average success rates (45.0% standard, 41.0% unseen) sink below the pure CP
-                  baseline in key dimensions. Conversely, by conditioning our integrated critic
-                  directly on the VLM's semantic tokens, BORA-Offline binds value updates strictly
-                  to the multimodal latent space. This is further supported by the t-SNE
-                  visualization in the Appendix, where the external critic variant exhibits clear
-                  representation drift away from the SFT/BC manifold after offline RL, while
-                  BORA-Offline better preserves token-action manifold alignment.
+                  Critic-decoupled baselines overfit to raw pixel values and spurious background
+                  features, propagating erroneous gradients back to the VLM backbone. In the
+                  standard setting, the decoupled-critic baseline falls below CP Base on average.
+                  Under object-unseen evaluation, it collapses on Open-the-Box, indicating unstable
+                  value guidance under severe occlusion. In contrast, the action-conditioned critic
+                  in BORA-Offline binds value updates to the multimodal latent space, improving
+                  robustness under occlusion.
                 </p>
               </div>
             </details>
@@ -382,44 +376,34 @@
                 <p>
                   Despite the intent awareness established offline, real-world deployment
                   introduces covariate shifts, execution errors, and intricate contact friction,
-                  causing a performance drop on object-unseen tasks. To address this offline-to-
-                  online gap, the online residual chunk adaptation in BORA-Full provides a
-                  sample-efficient solution. Specifically, BORA-Full utilizes only 2 rounds of
-                  online reinforcement learning, where each round collects 10 rollout trajectories
-                  with human corrective interventions. Benefiting from this residual training and
-                  the human-intervention value guidance mechanism, BORA-Full improves the overall
-                  average success rate to 86.0% in the standard setting, and elevates it from
-                  52.0% to 70.0% under the object-unseen configuration. This efficient adaptation
-                  achieves state-of-the-art performance on dexterous execution tasks, while
-                  preventing representation drift in the frozen pre-trained VLM foundation.
+                  causing a performance drop on object-unseen tasks. BORA-Full closes this gap
+                  with rapid convergence within the first two online RL rounds. In practice, the
+                  human operator intervenes only 1--2 times per task, requiring roughly 20% of the
+                  online trajectory time. With this residual adaptation, BORA-Full improves the
+                  overall average success rate to 86.0% in the standard setting and elevates it
+                  from 52.0% to 70.0% under the object-unseen configuration, achieving the best
+                  performance among evaluated baselines while preventing representation drift.
                 </p>
               </div>
             </details>
 
             <details class="rounded-2xl border border-slate-200 bg-white/70 p-4">
               <summary class="cursor-pointer text-sm font-semibold text-slate-800">
-                RQ3 Analysis: Mechanistic probing of critic inheritance
+                RQ3 Analysis: Mechanistic analysis of critic inheritance
               </summary>
               <div class="mt-3 space-y-3 text-sm text-slate-700">
                 <p>
-                  To understand the underlying mechanism behind the rapid online adaptation, we
-                  analyze the behaviors of the inherited value function. The empirical value
-                  profiles reveal that the offline-matured integrated critic, when combined with
-                  the online asymmetric intervention-aware reward, provides stable and responsive
-                  value estimation. Throughout autonomous execution, the inherited critic exhibits
-                  clear discriminative capability: it maintains high value confidence along
-                  successful trajectories, while its Q-value estimation remains consistently low
-                  along failed trajectories.
+                  The offline-trained action-conditioned critic, when combined with the online
+                  asymmetric intervention-driven reward, provides stable and responsive value
+                  estimation. Throughout autonomous execution, the inherited critic maintains high
+                  value confidence along successful trajectories while remaining low along failed
+                  trajectories, supporting reliable residual policy updates.
                 </p>
                 <p>
-                  Importantly, this discriminative capability is preserved even in visually similar
-                  states, such as when the multi-fingered hand grasps an object under severe local
-                  self-occlusion. Although the raw camera pixels appear nearly identical to those
-                  in the decoupled baseline, the joint token-action alignment inherited from the
-                  offline stage allows the critic to evaluate state-action pairs at a structural
-                  semantic level. Consequently, the inherited critic mitigates superficial visual
-                  ambiguities, penalizes high-risk execution states, and guides the lightweight
-                  residual policy to incorporate human corrective priors with few physical
+                  This discriminative capability persists even under severe occlusion. Although
+                  raw camera pixels appear similar to the decoupled baseline, the action-conditioned
+                  critic evaluates state-action pairs at a structural semantic level, penalizes
+                  high-risk execution states, and guides the residual policy with few physical
                   interactions.
                 </p>
               </div>
