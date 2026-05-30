@@ -208,29 +208,28 @@
         <section class="chart-card mt-8 rounded-2xl p-6" id="abstract">
           <h2 class="title-font text-2xl font-bold text-slate-900">Abstract</h2>
           <p class="mt-3 text-sm text-slate-700">
-            While Supervised Fine-Tuning (SFT) has enabled dexterous Vision-Language-Action (VLA)
-            models to adapt to diverse real-world tasks, this post-training pipeline often limits
-            the model's intent alignment, thereby compromising generalization and stability.
-            Although Reinforcement Learning (RL) post-training offers a theoretical remedy,
-            existing RL frameworks applied to dexterous manipulation - characterized by
-            high-dimensional action spaces, complex contacts, and severe self-occlusions -
-            frequently suffer from both "Visual Value Hacking" and a severe misalignment between
-            high-level intents and low-level control.
-          </p>
-          <p class="mt-3 text-sm text-slate-700">
-            To address these twin bottlenecks, we propose BORA, the first offline-to-online RL
-            post-training framework designed for real-world dexterous VLA models. In the offline
-            phase, BORA constructs an Integrated Token-Action Critic network to simultaneously
-            mitigate visual hacking and establish deep alignment between macro-manipulation
-            intents and low-level motor control. To mitigate real-world execution errors, the
-            online phase freezes the offline-aligned VLA base and introduces a lightweight,
-            Human-in-the-Loop (HiL) Residual Chunk adaptation mechanism. By leveraging the
-            offline critic and employing an intervention-aware reward formulation, BORA
-            compensates for unmodeled physical dynamics while preserving pre-trained priors.
-            Extensive evaluations across five complex real-world dexterous tasks demonstrate
-            that BORA significantly outperforms pure imitation learning and traditional
-            decoupled RL baselines, achieving a 33% absolute increase in average success rate
-            under standard settings and up to a 43% improvement in unseen object generalization.
+            Vision-Language-Action (VLA) models have emerged as a promising paradigm for grounding
+            visual-language understanding into real-world robotic manipulation. However, dexterous
+            manipulation remains challenging for VLA policies due to high-dimensional hand control
+            and compounding execution errors, which makes real-world RL post-training essential for
+            bridging the gap between visually grounded action generation and physically reliable
+            dexterous execution. However, high-dimensional dexterous exploration often triggers
+            temporal inconsistency, sample inefficiency and hardware risks in the real world. To
+            address these challenges, we propose BORA, an offline-to-online RL post-training
+            framework designed for real-world dexterous VLA models. In the offline phase, BORA
+            constructs a critic that takes both the VLM's cognition tokens and action chunks as
+            inputs. This design enables action-conditioned value guidance, allowing the critic to
+            evaluate dexterous hand motions beyond visual context alone. During the subsequent
+            online phase, BORA freezes the VLA base and introduces a lightweight,
+            Human-in-the-Loop (HiL) chunk-wise residual adaptation mechanism to mitigate real-world
+            execution errors and further correct the offline-learned intents within the actual
+            physical environment. By inheriting the offline critic and employing intervention-driven
+            rewards, BORA effectively corrects execution discrepancies and adapts to real-world
+            physical variances while preserving the pretrained policy as a stable prior. Extensive
+            evaluations across five complex real-world dexterous tasks demonstrate that BORA
+            significantly outperforms pure imitation learning and traditional decoupled RL
+            baselines, achieving a 33% absolute increase in average success rate under standard
+            settings and up to a 43% improvement in unseen object generalization.
           </p>
           <div class="media-frame mt-5">
             <img class="w-full" src="figure/teaser.png" alt="BORA teaser figure" />
