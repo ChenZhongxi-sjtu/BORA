@@ -1,0 +1,153 @@
+\begin{thebibliography}{29}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Xiang et~al.(2025)Xiang, Jin, Zhou, Gui, Xie, Liu, Wang, Duan, Xie, Wang, et~al.]{xiang2025parallels}
+T.-Y. Xiang, A.-Q. Jin, X.-H. Zhou, M.-J. Gui, X.-L. Xie, S.-Q. Liu, S.-Y. Wang, S.-B. Duan, F.-C. Xie, W.-K. Wang, et~al.
+\newblock Parallels between vla model post-training and human motor learning: Progress, challenges, and trends.
+\newblock \emph{arXiv preprint arXiv:2506.20966}, 2025.
+
+\bibitem[Han et~al.(2026)Han, Chen, Zhao, Xu, Shao, Peng, Mu, and Lian]{han2026dexhil}
+Y.~Han, Z.~Chen, Y.~Zhao, C.~Xu, Y.~Shao, Y.~Peng, Y.~Mu, and W.~Lian.
+\newblock Dexhil: A human-in-the-loop framework for vision-language-action model post-training in dexterous manipulation.
+\newblock \emph{arXiv preprint arXiv:2603.09121}, 2026.
+
+\bibitem[Mandlekar et~al.(2021)Mandlekar, Xu, Wong, Nasiriany, Wang, Kulkarni, Fei-Fei, Savarese, Zhu, and Mart{\'\i}n-Mart{\'\i}n]{mandlekar2021matters}
+A.~Mandlekar, D.~Xu, J.~Wong, S.~Nasiriany, C.~Wang, R.~Kulkarni, L.~Fei-Fei, S.~Savarese, Y.~Zhu, and R.~Mart{\'\i}n-Mart{\'\i}n.
+\newblock What matters in learning from offline human demonstrations for robot manipulation.
+\newblock \emph{arXiv preprint arXiv:2108.03298}, 2021.
+
+\bibitem[Zhang et~al.(2025)Zhang, Sun, Hu, Wu, Yuan, Zhou, Shen, and Zhou]{zhang2025pure}
+D.~Zhang, J.~Sun, C.~Hu, X.~Wu, Z.~Yuan, R.~Zhou, F.~Shen, and Q.~Zhou.
+\newblock Pure vision language action (vla) models: A comprehensive survey.
+\newblock \emph{arXiv preprint arXiv:2509.19012}, 2025.
+
+\bibitem[Intelligence et~al.(2025)Intelligence, Amin, Aniceto, Balakrishna, Black, Conley, Connors, Darpinian, Dhabalia, DiCarlo, et~al.]{intelligence2025pi}
+P.~Intelligence, A.~Amin, R.~Aniceto, A.~Balakrishna, K.~Black, K.~Conley, G.~Connors, J.~Darpinian, K.~Dhabalia, J.~DiCarlo, et~al.
+\newblock {{$\pi^*_{0.6}$}}: A vla that learns from experience.
+\newblock \emph{arXiv preprint arXiv:2511.14759}, 2025.
+
+\bibitem[Zhou et~al.(2025)Zhou, Peng, Li, Levine, and Kumar]{zhou2025efficient}
+Z.~Zhou, A.~Peng, Q.~Li, S.~Levine, and A.~Kumar.
+\newblock Efficient online reinforcement learning fine-tuning need not retain offline data.
+\newblock In \emph{International Conference on Learning Representations}, volume 2025, pages 32343--32368, 2025.
+
+\bibitem[Prasad et~al.(2024)Prasad, Lin, Wu, Zhou, and Bohg]{prasad2024consistency}
+A.~Prasad, K.~Lin, J.~Wu, L.~Zhou, and J.~Bohg.
+\newblock Consistency policy: Accelerated visuomotor policies via consistency distillation.
+\newblock \emph{arXiv preprint arXiv:2405.07503}, 2024.
+
+\bibitem[Lu et~al.(2024)Lu, Gao, Chen, Dai, Wang, Ding, and Tang]{lu2024manicm}
+G.~Lu, Z.~Gao, T.~Chen, W.~Dai, Z.~Wang, W.~Ding, and Y.~Tang.
+\newblock Manicm: Real-time 3d diffusion policy via consistency model for robotic manipulation.
+\newblock \emph{arXiv preprint arXiv:2406.01586}, 2024.
+
+\bibitem[Zitkovich et~al.(2023)Zitkovich, Yu, Xu, Xu, Xiao, Xia, Wu, Wohlhart, Welker, Wahid, et~al.]{zitkovich2023rt}
+B.~Zitkovich, T.~Yu, S.~Xu, P.~Xu, T.~Xiao, F.~Xia, J.~Wu, P.~Wohlhart, S.~Welker, A.~Wahid, et~al.
+\newblock Rt-2: Vision-language-action models transfer web knowledge to robotic control.
+\newblock In \emph{Conference on Robot Learning}, pages 2165--2183. PMLR, 2023.
+
+\bibitem[Mees et~al.(2024)Mees, Ghosh, Pertsch, Black, Walke, Dasari, Hejna, Kreiman, Xu, Luo, et~al.]{mees2024octo}
+O.~Mees, D.~Ghosh, K.~Pertsch, K.~Black, H.~R. Walke, S.~Dasari, J.~Hejna, T.~Kreiman, C.~Xu, J.~Luo, et~al.
+\newblock Octo: An open-source generalist robot policy.
+\newblock In \emph{First Workshop on Vision-Language Models for Navigation and Manipulation at ICRA 2024}, 2024.
+
+\bibitem[Kim et~al.(2024)Kim, Pertsch, Karamcheti, Xiao, Balakrishna, Nair, Rafailov, Foster, Lam, Sanketi, et~al.]{kim2024openvla}
+M.~J. Kim, K.~Pertsch, S.~Karamcheti, T.~Xiao, A.~Balakrishna, S.~Nair, R.~Rafailov, E.~Foster, G.~Lam, P.~Sanketi, et~al.
+\newblock Openvla: An open-source vision-language-action model.
+\newblock \emph{arXiv preprint arXiv:2406.09246}, 2024.
+
+\bibitem[Li et~al.(2025)Li, Deng, Liang, Luo, Zhou, Yao, Zeng, Feng, Liang, Xu, et~al.]{li2025scalable}
+Q.~Li, Y.~Deng, Y.~Liang, L.~Luo, L.~Zhou, C.~Yao, L.~Zeng, Z.~Feng, H.~Liang, S.~Xu, et~al.
+\newblock Scalable vision-language-action model pretraining for robotic manipulation with real-life human activity videos.
+\newblock \emph{arXiv preprint arXiv:2510.21571}, 2025.
+
+\bibitem[Chen et~al.(2025)Chen, Wang, Li, Bharadhwaj, Chen, Qin, Kou, Tian, Whitmire, Sodhi, et~al.]{chen2025flowing}
+M.~Chen, Y.~Wang, Z.~Li, H.~Bharadhwaj, Y.~Chen, C.~Qin, Z.~Kou, Y.~Tian, E.~Whitmire, R.~Sodhi, et~al.
+\newblock Flowing from reasoning to motion: Learning 3d hand trajectory prediction from egocentric human interaction videos.
+\newblock \emph{arXiv preprint arXiv:2512.16907}, 2025.
+
+\bibitem[Black et~al.(2024)Black, Brown, Driess, Esmail, Equi, Finn, Fusai, Groom, Hausman, Ichter, et~al.]{black2024pi_0}
+K.~Black, N.~Brown, D.~Driess, A.~Esmail, M.~Equi, C.~Finn, N.~Fusai, L.~Groom, K.~Hausman, B.~Ichter, et~al.
+\newblock {$\pi_0$}: A vision-language-action flow model for general robot control.
+\newblock \emph{arXiv preprint arXiv:2410.24164}, 2024.
+
+\bibitem[{Physical Intelligence} et~al.(2025){Physical Intelligence}, Black, Brown, Darpinian, Dhabalia, Driess, Esmail, Equi, Finn, Fusai, et~al.]{intelligence2025pi_}
+{Physical Intelligence}, K.~Black, N.~Brown, J.~Darpinian, K.~Dhabalia, D.~Driess, A.~Esmail, M.~Equi, C.~Finn, N.~Fusai, et~al.
+\newblock {$\pi_{0.5}$}: A vision-language-action model with open-world generalization.
+\newblock \emph{arXiv preprint arXiv:2504.16054}, 2025.
+
+\bibitem[Luo et~al.(2026)Luo, Wang, Zhang, Zheng, Xi, Xu, Xu, Yuan, Zhang, Wang, et~al.]{luo2026being}
+H.~Luo, Y.~Wang, W.~Zhang, S.~Zheng, Z.~Xi, C.~Xu, H.~Xu, H.~Yuan, C.~Zhang, Y.~Wang, et~al.
+\newblock Being-h0. 5: Scaling human-centric robot learning for cross-embodiment generalization.
+\newblock \emph{arXiv preprint arXiv:2601.12993}, 2026.
+
+\bibitem[Zhong et~al.(2025)Zhong, Huang, Li, Zhang, Chen, Guan, Zeng, Lui, Ye, Liang, et~al.]{zhong2025dexgraspvla}
+Y.~Zhong, X.~Huang, R.~Li, C.~Zhang, Z.~Chen, T.~Guan, F.~Zeng, K.~N. Lui, Y.~Ye, Y.~Liang, et~al.
+\newblock Dexgraspvla: A vision-language-action framework towards general dexterous grasping.
+\newblock \emph{arXiv preprint arXiv:2502.20900}, 2025.
+
+\bibitem[He et~al.(2025)He, Li, Yu, Qi, Zhang, Chen, Zhang, Zhang, Yi, and Wang]{he2025dexvlg}
+J.~He, D.~Li, X.~Yu, Z.~Qi, W.~Zhang, J.~Chen, Z.~Zhang, Z.~Zhang, L.~Yi, and H.~Wang.
+\newblock Dexvlg: Dexterous vision-language-grasp model at scale.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on Computer Vision}, pages 14248--14258, 2025.
+
+\bibitem[Luo et~al.(2025)Luo, Feng, Zhang, Zheng, Wang, Yuan, Liu, Xu, Jin, and Lu]{luo2025being}
+H.~Luo, Y.~Feng, W.~Zhang, S.~Zheng, Y.~Wang, H.~Yuan, J.~Liu, C.~Xu, Q.~Jin, and Z.~Lu.
+\newblock Being-h0: vision-language-action pretraining from large-scale human videos.
+\newblock \emph{arXiv preprint arXiv:2507.15597}, 2025.
+
+\bibitem[Huang et~al.(2025)Huang, Fang, Zhang, Li, Zhao, and Xia]{huang2025co}
+D.~Huang, Z.~Fang, T.~Zhang, Y.~Li, L.~Zhao, and C.~Xia.
+\newblock Co-rft: Efficient fine-tuning of vision-language-action models through chunked offline reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:2508.02219}, 2025.
+
+\bibitem[Chen et~al.(2025)Chen, Tian, Liu, Zhou, Li, and Zhao]{chen2025conrft}
+Y.~Chen, S.~Tian, S.~Liu, Y.~Zhou, H.~Li, and D.~Zhao.
+\newblock Conrft: A reinforced fine-tuning method for vla models via consistency policy.
+\newblock \emph{arXiv preprint arXiv:2502.05450}, 2025.
+
+\bibitem[Xu et~al.(2026)Xu, Springenberg, Equi, Amin, Esmail, Levine, and Ke]{xu2026rl}
+C.~Xu, J.~T. Springenberg, M.~Equi, A.~Amin, A.~Esmail, S.~Levine, and L.~Ke.
+\newblock Rl token: Bootstrapping online rl with vision-language-action models.
+\newblock \emph{arXiv preprint arXiv:2604.23073}, 2026.
+
+\bibitem[Chen et~al.(2025)Chen, Liu, Zhang, Guo, Xu, Lin, Zang, Zhang, Yu, Fan, et~al.]{chen2025pirl}
+K.~Chen, Z.~Liu, T.~Zhang, Z.~Guo, S.~Xu, H.~Lin, H.~Zang, Q.~Zhang, Z.~Yu, G.~Fan, et~al.
+\newblock $\pi$rl: Online rl fine-tuning for flow-based vision-language-action models.
+\newblock \emph{arXiv preprint arXiv:2510.25889}, 2025.
+
+\bibitem[Nakamoto et~al.(2023)Nakamoto, Zhai, Singh, Sobol~Mark, Ma, Finn, Kumar, and Levine]{nakamoto2023cal}
+M.~Nakamoto, S.~Zhai, A.~Singh, M.~Sobol~Mark, Y.~Ma, C.~Finn, A.~Kumar, and S.~Levine.
+\newblock Cal-ql: Calibrated offline rl pre-training for efficient online fine-tuning.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 62244--62269, 2023.
+
+\bibitem[Ball et~al.(2023)Ball, Smith, Kostrikov, and Levine]{ball2023efficient}
+P.~J. Ball, L.~Smith, I.~Kostrikov, and S.~Levine.
+\newblock Efficient online reinforcement learning with offline data.
+\newblock In \emph{International Conference on Machine Learning}, pages 1577--1594. PMLR, 2023.
+
+\bibitem[Su et~al.(2026)Su, Westenbroek, Nagabandi, and Gupta]{su2026rfs}
+E.~Su, T.~Westenbroek, A.~Nagabandi, and A.~Gupta.
+\newblock Rfs: Reinforcement learning with residual flow steering for dexterous manipulation.
+\newblock In \emph{The Fourteenth International Conference on Learning Representations}, 2026.
+
+\bibitem[Ma et~al.(2025)Ma, Chen, Wang, Li, and Dai]{ma2025efficient}
+H.~Ma, T.~Chen, K.~Wang, N.~Li, and B.~Dai.
+\newblock Efficient online reinforcement learning for diffusion policy.
+\newblock \emph{arXiv preprint arXiv:2502.00361}, 2025.
+
+\bibitem[Rajeswaran et~al.(2018)Rajeswaran, Kumar, Gupta, Vezzani, Schulman, Todorov, and Levine]{Rajeswaran-RSS-18}
+A.~Rajeswaran, V.~Kumar, A.~Gupta, G.~Vezzani, J.~Schulman, E.~Todorov, and S.~Levine.
+\newblock {Learning Complex Dexterous Manipulation with Deep Reinforcement Learning and Demonstrations}.
+\newblock In \emph{Proceedings of Robotics: Science and Systems (RSS)}, 2018.
+
+\bibitem[Luo et~al.(2024)Luo, Hu, Xu, Tan, Berg, Sharma, Schaal, Finn, Gupta, and Levine]{luo2024serl}
+J.~Luo, Z.~Hu, C.~Xu, Y.~L. Tan, J.~Berg, A.~Sharma, S.~Schaal, C.~Finn, A.~Gupta, and S.~Levine.
+\newblock Serl: A software suite for sample-efficient robotic reinforcement learning.
+\newblock In \emph{2024 IEEE International Conference on Robotics and Automation (ICRA)}, pages 16961--16969. IEEE, 2024.
+
+\end{thebibliography}

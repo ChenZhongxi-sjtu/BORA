@@ -1,0 +1,177 @@
+\relax 
+\bibstyle{corlabbrvnat}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\newlabel{sec:intro}{{1}{1}{Introduction}{figure.caption.2}{}}
+\citation{xiang2025parallels,han2026dexhil}
+\citation{mandlekar2021matters}
+\citation{zhang2025pure}
+\citation{intelligence2025pi}
+\citation{zhou2025efficient}
+\citation{prasad2024consistency,lu2024manicm}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  \textbf  {BORA: Bridging Offline Reinforcement Learning and Online Residual Adaptation for Real-World Dexterous VLA Models.} We propose an offline-to-online RL post-training framework for dexterous VLAs, bridging semantic intents and physical dynamics to significantly elevate real-world deployment reliability and task success rates. }}{2}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:teaser}{{1}{2}{\textbf {BORA: Bridging Offline Reinforcement Learning and Online Residual Adaptation for Real-World Dexterous VLA Models.} We propose an offline-to-online RL post-training framework for dexterous VLAs, bridging semantic intents and physical dynamics to significantly elevate real-world deployment reliability and task success rates}{figure.caption.2}{}}
+\citation{zitkovich2023rt,mees2024octo,kim2024openvla}
+\citation{li2025scalable,chen2025flowing}
+\citation{black2024pi_0,intelligence2025pi_}
+\citation{luo2026being,zhong2025dexgraspvla,he2025dexvlg}
+\citation{luo2025being}
+\citation{li2025scalable}
+\citation{luo2026being}
+\citation{huang2025co}
+\citation{chen2025conrft,xu2026rl,chen2025pirl}
+\citation{nakamoto2023cal,ball2023efficient}
+\citation{su2026rfs}
+\citation{su2026rfs}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vision-Language-Action Models for Dexterous Manipulation}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Post-Training and Adaptation of Vision-Language-Action Policies}{3}{section*.4}\protected@file@percent }
+\citation{ma2025efficient}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  \textbf  {Illustration of the BORA framework.} BORA bridges offline token-action reinforcement learning and online residual adaptation for real-world dexterous VLA policies. In the offline stage, the VLM encoder and action expert produce shared VLM cognition tokens and action chunks, jointly evaluated by an integrated critic $Q_\phi $ with semantic anchoring and IQL-based policy optimization. The right panel details the action-conditioned critic, which predicts per-step $Q$ and $V$ values from VLM tokens, action chunks, and position embeddings, with shifted value bootstrap for credit propagation within each chunk. In the online stage, the offline-trained base VLA is frozen, while a lightweight residual chunk actor $\pi _{\mathrm  {res}}$ is trained with inherited critic feedback, sparse task rewards, and human-in-the-loop intervention signals. The final action chunk is obtained by residual composition, $A_{\mathrm  {final}} = A_{\mathrm  {base}} + \lambda A_{\mathrm  {res}}$~\cite  {su2026rfs}, enabling low-cost physical adaptation and improved dexterous execution. }}{4}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:double}{{2}{4}{\textbf {Illustration of the BORA framework.} BORA bridges offline token-action reinforcement learning and online residual adaptation for real-world dexterous VLA policies. In the offline stage, the VLM encoder and action expert produce shared VLM cognition tokens and action chunks, jointly evaluated by an integrated critic $Q_\phi $ with semantic anchoring and IQL-based policy optimization. The right panel details the action-conditioned critic, which predicts per-step $Q$ and $V$ values from VLM tokens, action chunks, and position embeddings, with shifted value bootstrap for credit propagation within each chunk. In the online stage, the offline-trained base VLA is frozen, while a lightweight residual chunk actor $\pi _{\mathrm {res}}$ is trained with inherited critic feedback, sparse task rewards, and human-in-the-loop intervention signals. The final action chunk is obtained by residual composition, $A_{\mathrm {final}} = A_{\mathrm {base}} + \lambda A_{\mathrm {res}}$~\cite {su2026rfs}, enabling low-cost physical adaptation and improved dexterous execution}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Method}{4}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{4}{Method}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Offline RL with Action-Conditioned Critic and Consistency Policy}{4}{subsection.3.1}\protected@file@percent }
+\newlabel{subsec:offline_rl}{{3.1}{4}{Offline RL with Action-Conditioned Critic and Consistency Policy}{subsection.3.1}{}}
+\citation{prasad2024consistency,lu2024manicm}
+\citation{Rajeswaran-RSS-18}
+\citation{zhou2025efficient}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {paragraph}{Action-Conditioned Critic.}{5}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Conservative Policy Improvement.}{5}{section*.7}\protected@file@percent }
+\newlabel{eq:ppo_full}{{2}{5}{Conservative Policy Improvement}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Bridging the Deployment Gap: HiL Residual Chunk Adaptation}{5}{subsection.3.2}\protected@file@percent }
+\newlabel{subsec:online_adaptation}{{3.2}{5}{Bridging the Deployment Gap: HiL Residual Chunk Adaptation}{subsection.3.2}{}}
+\citation{ball2023efficient}
+\citation{han2026dexhil}
+\citation{li2025scalable}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{6}{section.4}\protected@file@percent }
+\newlabel{sec:experiments}{{4}{6}{Experiments}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Experimental Setup}{6}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:setup}{{4.1}{6}{Experimental Setup}{subsection.4.1}{}}
+\citation{luo2024serl}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Real-World Dexterous Manipulation Success Rates under the \textbf  {Standard} Configuration. }}{7}{table.caption.8}\protected@file@percent }
+\newlabel{tab:results_standard}{{1}{7}{Real-World Dexterous Manipulation Success Rates under the \textbf {Standard} Configuration}{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Real-World Dexterous Manipulation Success Rates under the \textbf  {Object-Unseen} Setting. }}{7}{table.caption.9}\protected@file@percent }
+\newlabel{tab:results_unseen}{{2}{7}{Real-World Dexterous Manipulation Success Rates under the \textbf {Object-Unseen} Setting}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Main Results and Analysis}{7}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:main_exp}{{4.2}{7}{Main Results and Analysis}{subsection.4.2}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Visual summary of real-world dexterous manipulation results. Success rates are reported across five tasks under the standard and object-unseen settings. BORA-Offline improves over imitation and decoupled-critic baselines, while BORA-Full further improves performance through online residual adaptation. }}{8}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:results_bora}{{3}{8}{Visual summary of real-world dexterous manipulation results. Success rates are reported across five tasks under the standard and object-unseen settings. BORA-Offline improves over imitation and decoupled-critic baselines, while BORA-Full further improves performance through online residual adaptation}{figure.caption.10}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Limitations}{9}{section.5}\protected@file@percent }
+\newlabel{sec:limitations}{{5}{9}{Limitations}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{9}{Conclusion}{section.6}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Detailed Critic Formulation}{10}{appendix.A}\protected@file@percent }
+\newlabel{sec:critic_objectives}{{A}{10}{Detailed Critic Formulation}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Implementation Details and Training Safeguards}{10}{appendix.B}\protected@file@percent }
+\newlabel{sec:implementation_and_safeguards}{{B}{10}{Implementation Details and Training Safeguards}{appendix.B}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Advantage Gating Mechanism}{10}{subsection.B.1}\protected@file@percent }
+\newlabel{sec:gating_mechanism}{{B.1}{10}{Advantage Gating Mechanism}{subsection.B.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Two-Stage Post-Training Pipeline}{10}{subsection.B.2}\protected@file@percent }
+\newlabel{sec:staged_pipeline}{{B.2}{10}{Two-Stage Post-Training Pipeline}{subsection.B.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Online Residual Alignment via Conservative Value Guidance}{10}{subsection.B.3}\protected@file@percent }
+\newlabel{sec:online_residual_alignment}{{B.3}{10}{Online Residual Alignment via Conservative Value Guidance}{subsection.B.3}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Online Residual Adaptation Algorithm}{12}{subsection.B.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces BORA Online Residual Adaptation (Multi-Round Iteration)}}{12}{algorithm.1}\protected@file@percent }
+\newlabel{alg:bora_online}{{1}{12}{BORA Online Residual Adaptation (Multi-Round Iteration)}{algorithm.1}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Experimental Details}{13}{appendix.C}\protected@file@percent }
+\newlabel{sec:experimental_details}{{C}{13}{Experimental Details}{appendix.C}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Robot Hardware and Teleoperation Setup}{13}{subsection.C.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Robot hardware and teleoperation setup. (a) The real-world platform consists of a Franka robotic arm, a DexHand021 dexterous hand, and Intel RealSense D435 RGB-D cameras for multi-view visual observation. Red boxes indicate the main sensing and manipulation components used during evaluation. (b) The wearable teleoperation device captures human hand motions and provides corrective demonstrations for human-in-the-loop online residual adaptation. }}{13}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:hardware_teleop_setup}{{4}{13}{Robot hardware and teleoperation setup. (a) The real-world platform consists of a Franka robotic arm, a DexHand021 dexterous hand, and Intel RealSense D435 RGB-D cameras for multi-view visual observation. Red boxes indicate the main sensing and manipulation components used during evaluation. (b) The wearable teleoperation device captures human hand motions and provides corrective demonstrations for human-in-the-loop online residual adaptation}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Rollout Visualizations}{13}{subsection.C.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}Object and Task Configurations}{13}{subsection.C.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Representative real-world rollout visualizations. From top to bottom, the rows show successful executions of \textit  {Pick-the-Plush-Toy}, \textit  {Pick-and-Place}, \textit  {Pull-the-Tissue}, \textit  {Open-the-Box}, and \textit  {Press-the-Button}. Each row contains temporally ordered frames from a single rollout, demonstrating coherent dexterous execution across diverse contact-rich manipulation tasks. }}{14}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:experiment}{{5}{14}{Representative real-world rollout visualizations. From top to bottom, the rows show successful executions of \textit {Pick-the-Plush-Toy}, \textit {Pick-and-Place}, \textit {Pull-the-Tissue}, \textit {Open-the-Box}, and \textit {Press-the-Button}. Each row contains temporally ordered frames from a single rollout, demonstrating coherent dexterous execution across diverse contact-rich manipulation tasks}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  \textbf  {Seen and unseen object configurations.} The object-seen setting corresponds to the offline data distribution, while the object-unseen setting includes novel object instances for evaluating generalization under cluttered and occluded real-world dexterous manipulation. }}{14}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:object_configurations}{{6}{14}{\textbf {Seen and unseen object configurations.} The object-seen setting corresponds to the offline data distribution, while the object-unseen setting includes novel object instances for evaluating generalization under cluttered and occluded real-world dexterous manipulation}{figure.caption.13}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  \textbf  {Task-level evaluation variations.} We visualize representative standard and object-unseen configurations, together with pose, orientation, position, and box opening-angle shifts used to evaluate real-world robustness. }}{16}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:object_variations}{{7}{16}{\textbf {Task-level evaluation variations.} We visualize representative standard and object-unseen configurations, together with pose, orientation, position, and box opening-angle shifts used to evaluate real-world robustness}{figure.caption.14}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Supplementary Visualizations}{17}{appendix.D}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}Additional Representation Visualization}{17}{subsection.D.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  t-SNE visualization of representation drift under offline RL. The left two panels show External Critic on \textit  {Pick-the-Plush-Toy}, and the right two panels show BORA-Offline on \textit  {Pick-and-Place}. The orange star denotes the SFT/BC manifold anchor, the black cross denotes the RL-updated representation, and the green box marks the local BC support. Red density regions indicate critic-preferred high-value areas, while gray regions denote lower-value regions. }}{17}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:tsne_vis}{{8}{17}{t-SNE visualization of representation drift under offline RL. The left two panels show External Critic on \textit {Pick-the-Plush-Toy}, and the right two panels show BORA-Offline on \textit {Pick-and-Place}. The orange star denotes the SFT/BC manifold anchor, the black cross denotes the RL-updated representation, and the green box marks the local BC support. Red density regions indicate critic-preferred high-value areas, while gray regions denote lower-value regions}{figure.caption.15}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2}V-Critic Saliency Visualization}{18}{subsection.D.2}\protected@file@percent }
+\newlabel{app:v_critic_saliency}{{D.2}{18}{V-Critic Saliency Visualization}{subsection.D.2}{}}
+\newlabel{fig:v_critic_saliency_decoupled}{{9a}{18}{Decoupled critic}{figure.caption.16}{}}
+\newlabel{sub@fig:v_critic_saliency_decoupled}{{a}{18}{Decoupled critic}{figure.caption.16}{}}
+\newlabel{fig:v_critic_saliency_bora}{{9b}{18}{BORA's integrated token-action critic}{figure.caption.16}{}}
+\newlabel{sub@fig:v_critic_saliency_bora}{{b}{18}{BORA's integrated token-action critic}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  \textbf  {V-critic saliency maps on the \textit  {Open-the-Box} task.} Each subfigure shows RGB observations from the left, front, and right camera views in the top row, with the corresponding gradient-based saliency maps in the bottom row. Warmer colors indicate larger influence on the current value estimate. }}{18}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:v_critic_saliency}{{9}{18}{\textbf {V-critic saliency maps on the \textit {Open-the-Box} task.} Each subfigure shows RGB observations from the left, front, and right camera views in the top row, with the corresponding gradient-based saliency maps in the bottom row. Warmer colors indicate larger influence on the current value estimate}{figure.caption.16}{}}
+\newlabel{fig:v_critic_saliency_tissue_decoupled}{{10a}{19}{Decoupled critic}{figure.caption.17}{}}
+\newlabel{sub@fig:v_critic_saliency_tissue_decoupled}{{a}{19}{Decoupled critic}{figure.caption.17}{}}
+\newlabel{fig:v_critic_saliency_tissue_bora}{{10b}{19}{BORA's integrated token-action critic}{figure.caption.17}{}}
+\newlabel{sub@fig:v_critic_saliency_tissue_bora}{{b}{19}{BORA's integrated token-action critic}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  \textbf  {V-critic saliency maps on the \textit  {Pull-the-Tissue} task.} Each subfigure shows RGB observations from the left, front, and right camera views in the top row, with the corresponding gradient-based saliency maps in the bottom row. Warmer colors indicate larger influence on the current value estimate. }}{19}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:v_critic_saliency_tissue}{{10}{19}{\textbf {V-critic saliency maps on the \textit {Pull-the-Tissue} task.} Each subfigure shows RGB observations from the left, front, and right camera views in the top row, with the corresponding gradient-based saliency maps in the bottom row. Warmer colors indicate larger influence on the current value estimate}{figure.caption.17}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3}Value-Function Visualization}{20}{subsection.D.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces  Value-function visualization of the inherited critic. The left panel shows a successful episode, where the critic maintains high value estimates throughout execution. The right panel shows a failure episode, where the value estimates remain lower and further drop near the failure state. Dashed lines connect representative frames to their corresponding value estimates. }}{20}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:value_vis}{{11}{20}{Value-function visualization of the inherited critic. The left panel shows a successful episode, where the critic maintains high value estimates throughout execution. The right panel shows a failure episode, where the value estimates remain lower and further drop near the failure state. Dashed lines connect representative frames to their corresponding value estimates}{figure.caption.18}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Hyperparameters and Implementation Details}{21}{appendix.E}\protected@file@percent }
+\newlabel{app:hyperparameters}{{E}{21}{Hyperparameters and Implementation Details}{appendix.E}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Hyperparameter Configurations for Offline and Online Phases.}}{21}{table.caption.19}\protected@file@percent }
+\newlabel{tab:hyperparameters}{{3}{21}{Hyperparameter Configurations for Offline and Online Phases}{table.caption.19}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Dataset Statistics and Task Metrics}{22}{appendix.F}\protected@file@percent }
+\newlabel{app:dataset}{{F}{22}{Dataset Statistics and Task Metrics}{appendix.F}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Task Definition, Success Criteria, and Dataset Statistics for Offline and Online Phases.}}{22}{table.caption.20}\protected@file@percent }
+\newlabel{tab:task_specs}{{4}{22}{Task Definition, Success Criteria, and Dataset Statistics for Offline and Online Phases}{table.caption.20}{}}
+\bibdata{example}
+\bibcite{xiang2025parallels}{{1}{2025}{{Xiang et~al.}}{{Xiang, Jin, Zhou, Gui, Xie, Liu, Wang, Duan, Xie, Wang, et~al.}}}
+\bibcite{han2026dexhil}{{2}{2026}{{Han et~al.}}{{Han, Chen, Zhao, Xu, Shao, Peng, Mu, and Lian}}}
+\bibcite{mandlekar2021matters}{{3}{2021}{{Mandlekar et~al.}}{{Mandlekar, Xu, Wong, Nasiriany, Wang, Kulkarni, Fei-Fei, Savarese, Zhu, and Mart{\'\i }n-Mart{\'\i }n}}}
+\bibcite{zhang2025pure}{{4}{2025}{{Zhang et~al.}}{{Zhang, Sun, Hu, Wu, Yuan, Zhou, Shen, and Zhou}}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Failure Mode and Quantitative Analysis}{23}{appendix.G}\protected@file@percent }
+\newlabel{app:failure_analysis}{{G}{23}{Failure Mode and Quantitative Analysis}{appendix.G}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Qualitative Analysis of Typical Failure Modes Across Settings.}}{23}{table.caption.21}\protected@file@percent }
+\newlabel{tab:failure_modes}{{5}{23}{Qualitative Analysis of Typical Failure Modes Across Settings}{table.caption.21}{}}
+\bibcite{intelligence2025pi}{{5}{2025}{{Intelligence et~al.}}{{Intelligence, Amin, Aniceto, Balakrishna, Black, Conley, Connors, Darpinian, Dhabalia, DiCarlo, et~al.}}}
+\bibcite{zhou2025efficient}{{6}{2025}{{Zhou et~al.}}{{Zhou, Peng, Li, Levine, and Kumar}}}
+\bibcite{prasad2024consistency}{{7}{2024}{{Prasad et~al.}}{{Prasad, Lin, Wu, Zhou, and Bohg}}}
+\bibcite{lu2024manicm}{{8}{2024}{{Lu et~al.}}{{Lu, Gao, Chen, Dai, Wang, Ding, and Tang}}}
+\bibcite{zitkovich2023rt}{{9}{2023}{{Zitkovich et~al.}}{{Zitkovich, Yu, Xu, Xu, Xiao, Xia, Wu, Wohlhart, Welker, Wahid, et~al.}}}
+\bibcite{mees2024octo}{{10}{2024}{{Mees et~al.}}{{Mees, Ghosh, Pertsch, Black, Walke, Dasari, Hejna, Kreiman, Xu, Luo, et~al.}}}
+\bibcite{kim2024openvla}{{11}{2024}{{Kim et~al.}}{{Kim, Pertsch, Karamcheti, Xiao, Balakrishna, Nair, Rafailov, Foster, Lam, Sanketi, et~al.}}}
+\bibcite{li2025scalable}{{12}{2025}{{Li et~al.}}{{Li, Deng, Liang, Luo, Zhou, Yao, Zeng, Feng, Liang, Xu, et~al.}}}
+\bibcite{chen2025flowing}{{13}{2025}{{Chen et~al.}}{{Chen, Wang, Li, Bharadhwaj, Chen, Qin, Kou, Tian, Whitmire, Sodhi, et~al.}}}
+\bibcite{black2024pi_0}{{14}{2024}{{Black et~al.}}{{Black, Brown, Driess, Esmail, Equi, Finn, Fusai, Groom, Hausman, Ichter, et~al.}}}
+\bibcite{intelligence2025pi_}{{15}{2025}{{{Physical Intelligence} et~al.}}{{{Physical Intelligence}, Black, Brown, Darpinian, Dhabalia, Driess, Esmail, Equi, Finn, Fusai, et~al.}}}
+\bibcite{luo2026being}{{16}{2026}{{Luo et~al.}}{{Luo, Wang, Zhang, Zheng, Xi, Xu, Xu, Yuan, Zhang, Wang, et~al.}}}
+\bibcite{zhong2025dexgraspvla}{{17}{2025}{{Zhong et~al.}}{{Zhong, Huang, Li, Zhang, Chen, Guan, Zeng, Lui, Ye, Liang, et~al.}}}
+\bibcite{he2025dexvlg}{{18}{2025}{{He et~al.}}{{He, Li, Yu, Qi, Zhang, Chen, Zhang, Zhang, Yi, and Wang}}}
+\bibcite{luo2025being}{{19}{2025}{{Luo et~al.}}{{Luo, Feng, Zhang, Zheng, Wang, Yuan, Liu, Xu, Jin, and Lu}}}
+\def\@LN@column{1}
+\bibcite{huang2025co}{{20}{2025}{{Huang et~al.}}{{Huang, Fang, Zhang, Li, Zhao, and Xia}}}
+\bibcite{chen2025conrft}{{21}{2025}{{Chen et~al.}}{{Chen, Tian, Liu, Zhou, Li, and Zhao}}}
+\bibcite{xu2026rl}{{22}{2026}{{Xu et~al.}}{{Xu, Springenberg, Equi, Amin, Esmail, Levine, and Ke}}}
+\bibcite{chen2025pirl}{{23}{2025}{{Chen et~al.}}{{Chen, Liu, Zhang, Guo, Xu, Lin, Zang, Zhang, Yu, Fan, et~al.}}}
+\bibcite{nakamoto2023cal}{{24}{2023}{{Nakamoto et~al.}}{{Nakamoto, Zhai, Singh, Sobol~Mark, Ma, Finn, Kumar, and Levine}}}
+\bibcite{ball2023efficient}{{25}{2023}{{Ball et~al.}}{{Ball, Smith, Kostrikov, and Levine}}}
+\bibcite{su2026rfs}{{26}{2026}{{Su et~al.}}{{Su, Westenbroek, Nagabandi, and Gupta}}}
+\bibcite{ma2025efficient}{{27}{2025}{{Ma et~al.}}{{Ma, Chen, Wang, Li, and Dai}}}
+\bibcite{Rajeswaran-RSS-18}{{28}{2018}{{Rajeswaran et~al.}}{{Rajeswaran, Kumar, Gupta, Vezzani, Schulman, Todorov, and Levine}}}
+\bibcite{luo2024serl}{{29}{2024}{{Luo et~al.}}{{Luo, Hu
